@@ -19,7 +19,7 @@ def solve(problem, algorithm):
             continue
         visited.add(tupleBoard)
         if(isGoal(curNode)):
-            return curNode, maxQueue
+            return curNode, maxQueue, len(visited)
         moves = curNode.getMoves()
         for move in moves:
             h = findH(curNode.board, algorithm)
@@ -27,12 +27,12 @@ def solve(problem, algorithm):
 
     return None
 
-def printSolution(node, count, maxQueue):
+def printSolution(node, count, maxQueue, numNodes):
     if(node is None):
         return
-    count = printSolution(node.prev, count + 1, maxQueue)
+    count = printSolution(node.prev, count + 1, maxQueue, numNodes)
     if(isGoal(node)):
-        print("Goal!!!\n\nTo solve this problem the search algorithm expanded a total of " + str(count) + " nodes.\nThe maximum number of nodes in the queue at any one time: " + str(maxQueue) + ".\nThe depth of the goal node was"+ str(node.g) + ".")
+        print("Goal!!!\n\nTo solve this problem the search algorithm expanded a total of " + str(numNodes) + " nodes.\nThe maximum number of nodes in the queue at any one time: " + str(maxQueue) + ".\nThe depth of the goal node was "+ str(node.g) + ".\n")
         return
     elif(node.prev is  None):
         print("Expanding state")
