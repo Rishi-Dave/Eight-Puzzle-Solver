@@ -28,7 +28,7 @@ def GraphSearch(type = None, grid = [[0,1,2],[4,5,3],[7,8,6]]):
     q = PriorityQueue()
     explored = []
     maxq = 0
-    nodecount = 1
+    nodecount = 0
     q.put(mygrid)
     while q.qsize() != 0:
         maxq = max(q.qsize(),maxq)
