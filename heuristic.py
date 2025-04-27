@@ -1,4 +1,4 @@
-from node import Node
+
 
 def misplacedH(current):
     perfect = [[1,2,3],[4,5,6],[7,8,0]]
@@ -31,5 +31,5 @@ mygrid = [[5,2,3],[4,1,6],[7,8,0]]
 
 myNode = Node(mygrid,0)
 
-
+print(mygrid.getHtype())
 print(eucleadianH(myNode))
