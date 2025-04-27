@@ -42,7 +42,7 @@ else:
     mygrid = Node(grid,0,None)
 
     lin = getLineage(sol)
-    depth = len(lin)-1
+    depth = len(lin)
     print("Expanding State")
     print(mygrid)
 
