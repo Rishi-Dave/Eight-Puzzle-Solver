@@ -25,7 +25,7 @@ def solve(problem, algorithm):
             h = findH(curNode.board, algorithm)
             heappush(queue, (curNode.g + 1+ h, node(curNode.g + 1, h, move, curNode)))
 
-    return None
+    return None, maxQueue, len(visited)
 
 def printSolution(node, count, maxQueue, numNodes):
     if(node is None):

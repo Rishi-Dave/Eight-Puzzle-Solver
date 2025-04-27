@@ -47,7 +47,9 @@ def main():
                 print("This heuristic is not a given option, please try again\n")
         print()
         myNode, maxQueue, numNodes = solve(board, int(heuristic))
-        
-        printSolution(myNode, 0, maxQueue,numNodes)
+        if myNode is None:
+            print("This problem is unsolvable, please try again with a solveable problem\n")
+        else:
+            printSolution(myNode, 0, maxQueue,numNodes)
 if __name__=="__main__":
     main()
