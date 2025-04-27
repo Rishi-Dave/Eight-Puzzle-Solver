@@ -29,31 +29,29 @@ choice = int(input(  "Uniform Cost Search[1] \n A* with the Misplaced Tile heuri
 
 
 if choice == 1:
-    sol = GraphSearch(None,grid)
+    sol,maxq,nodecount = GraphSearch(None,grid)
 elif choice == 2:
     sol,maxq,nodecount = GraphSearch("misplaced",grid)
 elif choice == 3:
     sol,maxq,nodecount = GraphSearch("eucleadian",grid)
 
 if not isinstance(sol,Node):
-    print("This puzzle is unsolvable")
-    exit() 
+    depth = 31
+    print("No solution exists")
+else:
+    mygrid = Node(grid,0,None)
 
+    lin = getLineage(sol)
+    depth = len(lin)-1
+    print("Expanding State")
+    print(mygrid)
 
-mygrid = Node(grid,0,None)
+    for _ in range(len(lin)):
+        cur = lin.pop()
+        print(f"The best next step is with g(n)= {cur.level} and h(n)= {cur.heuristic}")
+        print(cur)
 
-lin = getLineage(sol)
-depth = len(lin)-1
-print("Expanding State")
-print(mygrid)
-
-for _ in range(len(lin)):
-    cur = lin.pop()
-    print(f"The best next step is with g(n)= {cur.level} and h(n)= {cur.heuristic}")
-    print(cur)
-
-print("GOAL!!!!!!")
-
+    print("GOAL!!!!!!")
 
 print(f"To solve this problem the search algorithm expanded a total of {nodecount} nodes.")
 print(f"The maximum number of nodes in the queue at any one time: {maxq}.")

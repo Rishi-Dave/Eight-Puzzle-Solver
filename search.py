@@ -42,7 +42,7 @@ def GraphSearch(type = None, grid = [[0,1,2],[4,5,3],[7,8,6]]):
 
         explored.append(cur.getGrid()) #adding to explored
         # print(cur)
-        # print(cur.level)
+        #print(cur.level)
         # print(cur.heuristic)
         # print(cur.total)
         nextNodes = cur.getNext()
@@ -55,5 +55,6 @@ def GraphSearch(type = None, grid = [[0,1,2],[4,5,3],[7,8,6]]):
     if q.qsize() == 0 or q.qsize() > 31:
         return None,0,0
 
-grid = [[1,2,3],[4,5,6],[7,8,0]]
-GraphSearch("misplaced",grid)
+# grid = [[1,2,3],[4,5,6],[7,8,0]]
+# GraphSearch("misplaced",grid)
+
