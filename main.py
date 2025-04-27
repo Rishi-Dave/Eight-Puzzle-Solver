@@ -11,7 +11,7 @@ def main():
         elif(gameMode == 1):
             print("Choose your difficulty:\n- Trivial(t)\n- Very Easy(v)\n- Easy(e)\n- Doable(d)\n- Oh Boy(o)\n- Impossible(i)")
             difficulty = input()
-            problems = {
+            problems = { #default Values
                 't' : [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '']],
                 'v' : [['1', '2', '3'], ['4', '5', '6'], ['7', '', '8']],
                 'e' : [['1', '2', ''], ['4', '5', '3'], ['7', '8', '6']],

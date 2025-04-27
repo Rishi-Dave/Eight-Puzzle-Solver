@@ -15,19 +15,19 @@ def solve(problem, algorithm):
         maxQueue = max(maxQueue, len(queue))
         f, curNode = heappop(queue)
         tupleBoard = curNode.boardToList()
-        if(tupleBoard in visited):
+        if(tupleBoard in visited):# avoid duplicate visits 
             continue
         visited.add(tupleBoard)
         if(isGoal(curNode)):
             return curNode, maxQueue, len(visited)
-        moves = curNode.getMoves()
+        moves = curNode.getMoves() # get next four moves and add them in the for loop
         for move in moves:
             h = findH(curNode.board, algorithm)
             heappush(queue, (curNode.g + 1+ h, node(curNode.g + 1, h, move, curNode)))
 
     return None, maxQueue, len(visited)
 
-def printSolution(node, count, maxQueue, numNodes):
+def printSolution(node, count, maxQueue, numNodes): #displaying to interface
     if(node is None):
         return
     count = printSolution(node.prev, count + 1, maxQueue, numNodes)
