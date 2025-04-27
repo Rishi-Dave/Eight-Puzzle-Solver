@@ -22,35 +22,38 @@ def arrCheck(arr, arrlist) -> bool:
             return False
     return True
                 
-def GraphSearch(type = None):
+def GraphSearch(type = None, grid = [[0,1,2],[4,5,3],[7,8,6]]):
     perf = [[1,2,3],[4,5,6],[7,8,0]]
-    grid =  [ [8,7,1],[6,0,2],[5,4,3]]
-    mygrid = Node(grid,0,"None",type)
+    mygrid = Node(grid,0,None,type)
     q = PriorityQueue()
     explored = []
+    maxq = 0
+    nodecount = 1
     q.put(mygrid)
     while q.qsize() != 0:
+        maxq = max(q.qsize(),maxq)
         cur: Node = q.get()
 
         if isequal(cur.getGrid(),perf): #checking goal state
-            print(cur.level)
-            print("dis da one",cur)
-            return "WE FOUND ITTT"
+            return cur,maxq,nodecount
         
+        if cur.level > 31:
+            return None,0,0
+
         explored.append(cur.getGrid()) #adding to explored
-        print(cur)
-        print(cur.level)
-        print(cur.heuristic)
-        print(cur.total)
+        # print(cur)
+        # print(cur.level)
+        # print(cur.heuristic)
+        # print(cur.total)
         nextNodes = cur.getNext()
         
         for n in nextNodes:
             if arrCheck(n.getGrid(),explored): #checking if in explored
+                nodecount+=1
                 q.put(n)
         
-    if q.qsize() == 0 or q.qsize() >= 31:
-        print("invalidddddd")
-        return "invalid"
+    if q.qsize() == 0 or q.qsize() > 31:
+        return None,0,0
 
-
-GraphSearch("eucleadian")
+grid = [[1,2,3],[4,5,6],[7,8,0]]
+GraphSearch("misplaced",grid)
