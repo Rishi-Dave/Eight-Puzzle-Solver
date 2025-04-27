@@ -31,8 +31,13 @@ def main():
                 numInput = input('Enter the ' + prompts[i] + ' row, use space or tabs between numbers: ')
                 numList = numInput.split()
                 nums = [int(num) for num in numList]
+                while len(nums) != 3: #input validation
+                    print("Please Enter three numbers")
+                    numInput = input('Enter the ' + prompts[i] + ' row, use space or tabs between numbers: ')
+                    numList = numInput.split()
+                    nums = [int(num) for num in numList]
                 board.append(nums)
-            for i in range(0,3):
+            for i in range(0,3): #formatting for displaying
                 for j in range(0,3):
                     if board[i][j] > 0:
                         board[i][j] = str(board[i][j])
