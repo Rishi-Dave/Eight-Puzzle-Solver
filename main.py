@@ -48,7 +48,7 @@ def main():
         print()
         myNode, maxQueue, numNodes = solve(board, int(heuristic))
         if myNode is None:
-            print("This problem is unsolvable, please try again with a solveable problem\n")
+            print("This problem is unsolvable:\nThe search algorithm expanded a total of "+ str(numNodes) + " nodes.\nThe maximum number of nodes in the queue at any one time: " + str(maxQueue) + "\nPlease try again with a solveable problem\n")
         else:
             printSolution(myNode, 0, maxQueue,numNodes)
 if __name__=="__main__":
