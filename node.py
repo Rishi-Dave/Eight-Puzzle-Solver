@@ -107,7 +107,7 @@ def eucleadianH(current:Node) -> int:
             if current.grid[i][j] != 0 and current.grid[i][j] != perfect[i][j]:
                 addition = pow(perfectcoords[current.grid[i][j]][0] - currentcoords[current.grid[i][j]][0], 2) + pow(perfectcoords[current.grid[i][j]][1] - currentcoords[current.grid[i][j]][1], 2)
                 distance += pow(addition,0.5)
-    return distance/2 # divding by two since pairs are counted twice
+    return distance # divding by two since pairs are counted twice
 
 
 
